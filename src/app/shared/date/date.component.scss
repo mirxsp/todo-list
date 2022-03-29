@@ -11,6 +11,7 @@ $color: #3D82EB;
     background-color: $color;
 }
 span{
+    font-size: 1em;
     font-weight: 700;
     background-color: #fff;
     width: 100%;
@@ -19,6 +20,7 @@ span{
     user-select: none;
 
     &.month{
+        font-size: 1em;
         padding: 0 0.2em;
         color: #fff;
         background-color: transparent;

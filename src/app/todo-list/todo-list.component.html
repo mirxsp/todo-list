@@ -1,5 +1,18 @@
 <header>
     <app-date></app-date>
     <h1>Today</h1>
-    <app-dropdown [items]="['Completed','In progress','Removed']"></app-dropdown>
+    <app-dropdown [items]="['Completed','In progress','Removed']" (select)="onViewChange($event)"></app-dropdown>
 </header>
+<div id="items">
+    <ng-container *ngFor="let item of items;index as i">
+        <app-radio-button 
+            *ngIf="item.Status==currentView"
+            [text]="item.Title" 
+            (deleteRequest)="onDelete(i)"
+            [checked]="currentView==0"
+            (change)="onChange(i,$event)"
+            [deletable]="currentView!=2"></app-radio-button>
+    </ng-container>
+    
+    <button *ngIf="currentView==1" app-button [icon]="['fas','circle-plus']">Create New Item</button>
+</div>

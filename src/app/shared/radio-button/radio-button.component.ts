@@ -9,6 +9,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 export class RadioButtonComponent implements OnInit {
   @Input() checked: boolean = false;
   @Input() text: string = '';
+  @Input() deletable: boolean = true;
   @Output() change = new EventEmitter<boolean>();
   @Output() deleteRequest = new EventEmitter<RadioButtonComponent>();
 

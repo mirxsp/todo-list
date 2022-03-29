@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
   @Input() items!: string[];
-  @Output() select = new EventEmitter<Number>();
+  @Output() select = new EventEmitter<number>();
   expanded: boolean = false;
   constructor() { }
 
@@ -20,7 +20,7 @@ export class DropdownComponent implements OnInit {
     }
   }
 
-  onSelect(id: Number) {
+  onSelect(id: number) {
     this.select.emit(id);
   }
 }

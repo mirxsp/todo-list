@@ -1,5 +1,30 @@
 header{
+    padding: 0 5em;
     display: flex;
     flex-direction: row;
     align-items: center;
+    app-date{
+        font-size: 0.7em;
+    }
+    h1{
+        user-select: none;
+        font-size: 2em;
+        color: #323232;
+        margin-left: 0.4em;
+    }
+    app-dropdown{
+        margin-left: auto;
+        margin-right: 0.55em;
+    }
+}
+#items{
+    padding: 2em 5em;
+    *{
+        margin-top: 0.6em;
+    }
+    button{
+        width: 100%;
+        text-align: left;
+        color: #3D82EB;
+    }
 }

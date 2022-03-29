@@ -1,5 +1,5 @@
-<div (click)="onClick()">
+<div id="content" (click)="onClick()">
     <fa-icon [icon]="getIcon()"></fa-icon>
     <span [ngClass]="{'done': checked, 'text': true}">{{text}}</span>
 </div>
-<fa-icon (click)="onDelete()" class="close" [icon]="['far','circle-xmark']"></fa-icon>
+<fa-icon *ngIf="deletable" (click)="onDelete()" class="close" [icon]="['far','circle-xmark']"></fa-icon>
