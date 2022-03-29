@@ -1,0 +1,26 @@
+$color: #3D82EB;
+:host{
+    border-radius: 0.43em;
+    border: 0.143em solid $color;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    color: $color;
+    background-color: $color;
+}
+span{
+    font-weight: 700;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 0 0 0.3em 0.3em;
+    user-select: none;
+
+    &.month{
+        padding: 0 0.2em;
+        color: #fff;
+        background-color: transparent;
+    }
+}

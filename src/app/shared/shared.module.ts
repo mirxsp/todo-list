@@ -4,12 +4,13 @@ import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { IconsModule } from '../icons/icons.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './button/button.component';
+import { DateComponent } from './date/date.component';
 
-const COMPONENTS = [RadioButtonComponent, ButtonComponent];
+const COMPONENTS = [RadioButtonComponent, ButtonComponent, DateComponent];
 
 @NgModule({
   declarations: [
-    COMPONENTS
+    COMPONENTS,
   ],
   imports: [
     CommonModule,
