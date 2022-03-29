@@ -1,9 +1,9 @@
 <div class="ellipsis-container">
     <fa-icon [icon]="['fas','ellipsis']" (click)="onExpand()" [ngClass]="{'expanded': expanded, 'ellipsis': true}"></fa-icon>
 </div>
-<ng-container *ngIf="items.length!=0">
-    <div class="connector" (click)="onSelect(0)"></div>
-    <div class="horizontal-connector" (click)="onSelect(0)"></div>
+<ng-container *ngIf="items.length!=0 && expanded">
+    <div class="connector"></div>
+    <div class="horizontal-connector"></div>
 </ng-container>
 <div class="dropdown" *ngIf="expanded">
     <div class="dropdown-item" *ngFor="let item of items;index as i" (click)="onSelect(i)">{{item}}</div>
