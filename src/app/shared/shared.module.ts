@@ -5,8 +5,9 @@ import { IconsModule } from '../icons/icons.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './button/button.component';
 import { DateComponent } from './date/date.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
-const COMPONENTS = [RadioButtonComponent, ButtonComponent, DateComponent];
+const COMPONENTS = [RadioButtonComponent, ButtonComponent, DateComponent,DropdownComponent];
 
 @NgModule({
   declarations: [
