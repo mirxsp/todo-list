@@ -4,15 +4,22 @@
     <app-dropdown [items]="['Completed','In progress','Removed']" (select)="onViewChange($event)"></app-dropdown>
 </header>
 <div id="items">
-    <ng-container *ngFor="let item of items;index as i">
+    <!-- <ng-container *ngFor="let item of items;index as i">
         <app-radio-button 
             *ngIf="item.Status==currentView"
             [text]="item.Title" 
             (deleteRequest)="onDelete(i)"
             [checked]="currentView==0"
-            (change)="onChange(i,$event)"
-            [deletable]="currentView!=2"></app-radio-button>
+            (change)="onChange(i,$event)"></app-radio-button>
+    </ng-container> -->
+    <ng-container *ngFor="let item of todos">
+        <app-radio-button 
+            *ngIf="item.payload.doc.data().Status==currentView"
+            [text]="item.payload.doc.data().Title" 
+            (deleteRequest)="onDelete(item.payload.doc.id)"
+            [checked]="currentView==0"
+            (change)="onChange(item.payload.doc.id,$event)"></app-radio-button>
     </ng-container>
-    
-    <button *ngIf="currentView==1" app-button [icon]="['fas','circle-plus']">Create New Item</button>
+
+    <button *ngIf="currentView==1" app-button [icon]="['fas','circle-plus']" (click)="onCreateNew()">Create New Item</button>
 </div>
