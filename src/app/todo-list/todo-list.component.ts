@@ -36,29 +36,26 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    alert("now with firestore")
-    this.todos.forEach(x=>{
-      x.payload.doc.id
-    })
     let userId = localStorage.getItem("todos-user-id");
     if(userId == null){
       userId = this.randomString(10);
-      this.collectionId = 'todos-' + userId;
       localStorage.setItem('todos-user-id', userId);
     }
+    this.collectionId = 'todos-' + userId;
+    console.log(this.collectionId);
     var firestore_items = this.store.collection<TodoListItemModel>(this.collectionId)
       .snapshotChanges()
       .subscribe(res=>this.todos = res);
   }
 
   onDelete(id: string) {
-    // if (this.currentView != TodoListItemStatus.Removed) {
-    //   this.items[id].Status = TodoListItemStatus.Removed;
-    // }
-    // else {
-    //   this.items.splice(id,1);
-    // }
-    this.store.collection(this.collectionId).doc(id).delete();
+    if (this.currentView != TodoListItemStatus.Removed) {
+      this.store.collection(this.collectionId).doc(id).update({Status: TodoListItemStatus.Removed});
+    }
+    else {
+      // this.items.splice(id,1);
+      this.store.collection(this.collectionId).doc(id).delete();
+    }
   }
   onChange(id: string, checked: boolean) {
     if(this.currentView == TodoListItemStatus.Removed){
@@ -78,7 +75,7 @@ export class TodoListComponent implements OnInit {
     const item_name = prompt("Enter new item name");
     if(item_name!=null){
       const item = new TodoListItemModel(item_name, TodoListItemStatus.InProgress)
-      this.store.collection(this.collectionId).add(item);
+      this.store.collection(this.collectionId).add({...item});
       // this.items.push(item));
     }
   }
